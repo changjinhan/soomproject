@@ -4,12 +4,20 @@ class SoomCardsController < ApplicationController
     end
 
     def new
-        pass
+        render 'new'
     end
 
 
     def create
-        pass
+        title = params[:title]
+        content = params[:content]
+        
+        soom_card = SoomCard.new
+        soom_card.title = title
+        soom_card.content = content
+        soom_card.save
+
+        redirect_to action: 'nal_soom'
     end
 
     def destroy
@@ -22,11 +30,12 @@ class SoomCardsController < ApplicationController
     end
 
     def deul_soom
-        pass
+        render 'deul_soom'
     end
 
     def nal_soom
-        pass
+        @soom_cards = SoomCard.all
+        render 'nal_soom'
     end
 
     def notice

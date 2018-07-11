@@ -1,0 +1,10 @@
+<h1>Written Card </h1>
+    <a href='/soomcards'>내 달력으로 이동하기</a>
+        <pre></pre>
+    <a href='/soomcards/new'>오늘의 카드 쓰러가기</a>
+    <% @soom_cards.each do |f| %>
+        <div style='border: 1px solid black;'>
+            <div><%= f.title %></div>
+            <div><%= f.content %></div>
+        </div>
+    <% end %>

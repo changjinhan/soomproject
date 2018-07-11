@@ -22,19 +22,16 @@ ActiveRecord::Schema.define(version: 20180707130731) do
   end
 
   create_table "soom_cards", force: :cascade do |t|
-    t.integer "user_id"
-    t.date "datetime"
-    t.string "category"
-    t.string "hashtag"
-    t.text "memo"
+    t.string "title"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_soom_cards_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

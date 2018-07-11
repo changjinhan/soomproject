@@ -1,0 +1,2 @@
+class NalSoom < ApplicationRecord
+end
