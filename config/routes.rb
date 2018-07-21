@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/soomcards/create' => 'soom_cards#create'
   delete '/soomcards/:datetime/list/:id' => 'soom_cards#destroy'
   get '/soomcards/:datetime/list' => 'soom_cards#day_list'
+  get '/soomcards/pop_card/:id' => 'soom_cards#pop_card'
+  get '/soomcards/self_soom' => 'soom_cards#self_soom'
   get '/soomcards/deulsoom' => 'soom_cards#deul_soom'
   get '/soomcards/nalsoom' => 'soom_cards#nal_soom'
   get '/notice' => 'soom_cards#notice'

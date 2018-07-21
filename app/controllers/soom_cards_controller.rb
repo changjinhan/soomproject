@@ -1,36 +1,43 @@
 class SoomCardsController < ApplicationController
     def index
-        pass
     end
 
     def new
-        pass
+        render 'new'
     end
 
 
     def create
-        pass
+        redirect_to action: 'day_list'
     end
 
     def destroy
-        pass
+        redirect_to action: 'day_list'
     end
 
-
     def day_list
-        pass
+        datetime = params[:datetime]
+        day_card = SoomCard.where(datetime: datetime)
+        
+        #뷰에 표시할 것들 (프로필사진,이름 추가하기)
+        @category = day_card.category
+        @hashtag = day_card.hashtag
+    end
+
+    def pop_card
+        pop_card = SoomCard.find(params[:id])
+    end
+
+    def self_soom
     end
 
     def deul_soom
-        pass
     end
 
     def nal_soom
-        pass
     end
 
     def notice
-    
     end
 
 end
