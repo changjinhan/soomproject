@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
-gem "simple_calendar", "~> 2.0"
+#gem "simple_calendar", "~> 2.0"
 gem 'icalendar', '~> 2.4', '>= 2.4.1'
 gem 'carrierwave'
 gem 'devise'
