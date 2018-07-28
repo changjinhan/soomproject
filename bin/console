@@ -3,6 +3,7 @@
 require 'bundler/setup'
 require 'rails'
 require 'simple_calendar'
+require 'icalendar'
 
 require 'irb'
 IRB.start

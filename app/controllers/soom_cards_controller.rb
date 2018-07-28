@@ -1,32 +1,40 @@
 class SoomCardsController < ApplicationController
     def index
-        pass
+        cal = Icalendar::Calendar.new
+        cal.event do |e|
+          e.dtstart     = Icalendar::Values::Date.new('20050428')
+          e.dtend       = Icalendar::Values::Date.new('20050429')
+          e.summary     = "Meeting with the man."
+          e.description = "Have a long lunch meeting and decide nothing..."
+          e.ip_class    = "PRIVATE"
+        end
+        
+        cal.publish
     end
 
     def new
-        pass
+        
     end
 
-
     def create
-        pass
+        
     end
 
     def destroy
-        pass
+        
     end
 
 
     def day_list
-        pass
+        
     end
 
     def deul_soom
-        pass
+        
     end
 
     def nal_soom
-        pass
+        
     end
 
     def notice

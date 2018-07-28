@@ -6,6 +6,7 @@ class CreateSoomCards < ActiveRecord::Migration[5.1]
       t.string :category
       t.string :hashtag
       t.text :memo
+     
       
 
       t.timestamps
