@@ -20,6 +20,7 @@ class User < ApplicationRecord
     puts auth.info
     puts auth.info.email
     puts auth.info.name
+    puts auth.credentials.token
     where(email: auth.info.email).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -27,6 +28,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name # assuming the user model has a name
       user.image = auth.info.image # assuming the user model has an image
+      user.token = auth.credentials.token
       user.save
     end
     # 이 때는 이상하게도 after_create 콜백이 호출되지 않아서 아래와 같은 조치를 했다.
