@@ -1,5 +1,14 @@
 class SoomCardsController < ApplicationController
+    before_action :authenticate_user!
+    # before_action 뒤의 옵션들
+    # only: [ :new, :create, :destroy, :day_list, :pop_card] 이런식으로 특정 액션만 로그인 제한둘 수 있음.
+    # except: [ :index] 반대로 이렇게 특정 액션은 로그인 없이 허용할 수도 있음.
+    
     def index
+        if !user_signed_in?
+            redirect_to "users/sign_in"
+        end
+        render 'index'
     end
 
     def new
