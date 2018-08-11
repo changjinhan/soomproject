@@ -1,0 +1,7 @@
+{
+    title : 'event',
+    start : '2018-08-10',
+    end : '2018-08-10',
+    url : '/soomcards/pop_card/<%=current_user.id%>',
+    imageurl  : '<%=current_user.image%>' //you can pass the image url with a variable if you wish different images for each event 
+}

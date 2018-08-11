@@ -13,7 +13,7 @@
   <p><%= link_to "페이스북으로 로그인", user_facebook_omniauth_authorize_path %></p>
 <% end %>
 -->
-
+<!--<img src="<%=current_user.image%>" alt="User Image" height="100" width="100"> 이미지 넣는 방법-->
 
 
 <div id="calendar"></div>
@@ -28,28 +28,50 @@
       center: 'title',
       right: 'addEventButton today prev,next'
     },
+    events: [
+      {
+        title : 'event',
+        start : '2018-08-10',
+        end : '2018-08-10',
+        url : '/soomcards/pop_card/<%=current_user.id%>',
+        imageurl  : '<%=current_user.image%>' //you can pass the image url with a variable if you wish different images for each event 
+      }
+    ],
+    eventClick: function(event) {
+      if (event.url) {
+        window.open(event.url);
+        return false;
+      }
+    },
+    eventRender: function(event, eventElement) {
+      if (event.imageurl) {
+        eventElement.find(".fc-content").prepend("<img src='" + event.imageurl +"' width='16' height='16'>");
+      }
+    },
     customButtons: {
       addEventButton: {
-        text: 'add event...',
+        text: '숨 추가하기',
         click: function() {
-          var dateStr = prompt('Enter a date in YYYY-MM-DD format');
-          var date = moment(dateStr);
+//          var dateStr = prompt('Enter a date in YYYY-MM-DD format');
+//          var date = moment(dateStr);
 
-          if (date.isValid()) {
-            $('#calendar').fullCalendar('renderEvent', {
-              title: '오늘의 숨',
-              start: date,
-              allDay: true
-            });
-            alert('Great. Now, update your database...');
-          } else {
-            alert('Invalid date.');
-          }
+//          if (date.isValid()) {
+//            $('#calendar').fullCalendar('renderEvent', {
+//              title: '오늘의 숨',
+//              start: date,
+//              allDay: true
+//            });
+//            alert('Great. Now, update your database...');
+//          } else {
+//            alert('Invalid date.');
+//          }
         }
+
       }
     },
     navLinks: true,
     dayClick: function(date) {
+      
       alert('clicked ' + date.format());
     }
   });
