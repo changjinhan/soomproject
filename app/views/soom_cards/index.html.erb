@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <p><%= current_user.name %>님, 안녕하세요.</p>
+  <p>나의 친구들</p>
+  <% @friends.each do |f| %>
+    <ul>
+      <li><%= f["name"] %></li>
+    </ul>
+  <% end %>
+  <p><%= link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?" }, class: 'btn btn-default'%></p>
+<% else %>
+  <p><%= link_to "로그인", new_user_session_path, class: 'btn btn-default' %></p>
+  <p><%= link_to "페이스북으로 로그인", user_facebook_omniauth_authorize_path %></p>
+<% end %>

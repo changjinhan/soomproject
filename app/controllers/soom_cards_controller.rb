@@ -7,6 +7,12 @@ class SoomCardsController < ApplicationController
     def index
         if !user_signed_in?
             redirect_to "users/sign_in"
+        else
+            graph = Koala::Facebook::API.new(current_user.token)
+            user = graph.get_object("me")
+            @friends = graph.get_connections(user["id"], "friends")
+            puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+            puts @friends
         end
         render 'index'
     end
@@ -14,7 +20,6 @@ class SoomCardsController < ApplicationController
     def new
         render 'new'
     end
-
 
     def create
         redirect_to action: 'day_list'
