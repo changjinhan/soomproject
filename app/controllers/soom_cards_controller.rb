@@ -53,7 +53,7 @@ class SoomCardsController < ApplicationController
 
     def day_list
         datetime = params[:datetime]
-        @day_card = SoomCard.where(user_id: current_user.id, datetime: datetime).take
+        @day_card = SoomCard.where(user_id: current_user.id, datetime: datetime)
     end
 
     def pop_card

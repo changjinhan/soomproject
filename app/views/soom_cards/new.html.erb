@@ -1,16 +1,18 @@
 <h1>SoomCard 새로 만들기</h1>
-<form action='/soomcards/create' method='POST'>
+<form action= '/soomcards/create' method='POST'>
     <div>날짜:<input type='date' name='datetime'></div>
     <div>이름:<input type="text" name="name"></div>
-    <div>
-    카테고리: 
-        <label><input type="radio" name="category" value="thanksful">고마움</label>
-        <label><input type="radio" name="category" value="reversal_attraction">반전매력</label>
-        <label><input type="radio" name="category" value="respect">존경</label>
-        <label><input type="radio" name="category" value="adorable">사랑스러움</label>
-        <label><input type="radio" name="category" value="funny">재미</label>
+    <div>카테고리:
+        <select name='category'>
+            <option value="">카테고리 선택</option>
+            <option value="thanksful">고마움</option>
+            <option value="reversal_attraction">반전매력</option>
+            <option value="respect">존경</option>
+            <option value="adorable">사랑스러움</option>
+            <option value="funny">재미</option>
+        </select>
     </div>
     <div>해쉬태그: <input type="text" name="hashtag" placeholder="#해쉬태그"></div>
     <div>memo: <textarea type="text" name="memo" placeholder="메모"></textarea></div>
-    <button>완료</button>
+    <button class="complete">완료</button>
 </form>
